@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/black"
+        app:menu="@menu/header"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="695dp">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/buttonContainer">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/customListViewArray"
+                android:text="Custom Listview Array Adapter"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/customListViewBase"
+                android:text="Custom Listview Base Adapter"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/gridView"
+                android:text="Grid View"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/dyanmicListViewBtn"
+                android:text="Dynamic Custom List"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coming Soon"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coming Soon"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coming Soon"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coming Soon"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coming Soon"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coming Soon"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coming Soon"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coming Soon"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coming Soon"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_bar"
+        app:menu="@menu/bottom_bar"
+        />
+
+</LinearLayout>
