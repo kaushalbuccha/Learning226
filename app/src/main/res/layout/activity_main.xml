@@ -60,7 +60,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Coming Soon"
+                android:id="@+id/dynamicGridViewBtn"
+                android:text="Dynamic Grid View"
                 android:layout_margin="10dp"
                 android:padding="10dp"/>
             <Button

@@ -35,5 +35,6 @@ class CustomGridViewExample : AppCompatActivity() {
         gridView.setOnItemClickListener{adapterView, parent,position,l->
             Toast.makeText(this@CustomGridViewExample,name[position],Toast.LENGTH_SHORT).show()
         }
+
     }
 }
