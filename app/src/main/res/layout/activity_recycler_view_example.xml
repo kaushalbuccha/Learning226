@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,9 +5,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".RecyclerView.RecyclerViewExample">
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerViewLinear"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerViewLinear"
+        android:layout_above="@+id/input_layout"
+        android:layout_alignParentTop="true"/>
+
+    <RelativeLayout
+        android:id="@+id/input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/editTextVersionName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Version Name"/>
+
+        <EditText
+            android:id="@+id/editTextVersion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextVersionName"
+            android:hint="Version"/>
+
+        <Button
+            android:id="@+id/buttonAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextVersion"
+            android:text="Add"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learning226.R
-import kotlinx.coroutines.flow.flowOf
 
 class AdapterRecycler(private val context:Context,private val arrayList: ArrayList<RecyclerModel>):
     RecyclerView.Adapter<AdapterRecycler.MyHolder>() {
@@ -16,7 +15,7 @@ class AdapterRecycler(private val context:Context,private val arrayList: ArrayLi
         val view = LayoutInflater.from(context).inflate(
             R.layout.custom_recycler_list,parent,
             false)
-        return MyHolder(view)
+        return MyHolder(view,context)
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
@@ -29,8 +28,18 @@ class AdapterRecycler(private val context:Context,private val arrayList: ArrayLi
         return arrayList.size
     }
 
-    class MyHolder(view: View):RecyclerView.ViewHolder(view){
+    class MyHolder(view: View,context: Context):RecyclerView.ViewHolder(view){
         val versionName:TextView = view.findViewById(R.id.version_name)
         val version: TextView = view.findViewById(R.id.version)
+
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    // Communicate with the activity to delete the item
+                    (context as? RecyclerViewExample)?.deleteItem(position)
+                }
+            }
+        }
     }
 }

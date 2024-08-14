@@ -1,6 +1,8 @@
 package com.example.learning226.RecyclerView
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,6 +15,8 @@ class RecyclerViewExample : AppCompatActivity() {
     lateinit var arrayList:ArrayList<RecyclerModel>
     lateinit var recyclerView: RecyclerView
     var adapterRecycler:AdapterRecycler ?= null
+    private lateinit var editTextVersionName: EditText
+    private lateinit var editTextVersion: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_view_example)
@@ -40,14 +44,36 @@ class RecyclerViewExample : AppCompatActivity() {
         arrayList.add(RecyclerModel("Android 13", "13"))
         arrayList.add(RecyclerModel("Android 14", "14"))
 
-        initRecyclerView()
-
-    }
-    private fun initRecyclerView(){
         recyclerView = findViewById(R.id.recyclerViewLinear)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this,RecyclerView.VERTICAL,false)
         adapterRecycler = AdapterRecycler(this,arrayList)
         recyclerView.adapter = adapterRecycler
+
+        editTextVersionName = findViewById(R.id.editTextVersionName)
+        editTextVersion = findViewById(R.id.editTextVersion)
+        val buttonAdd: Button = findViewById(R.id.buttonAdd)
+
+        buttonAdd.setOnClickListener {
+            val versionName = editTextVersionName.text.toString()
+            val version = editTextVersion.text.toString()
+            if (versionName.isNotEmpty() && version.isNotEmpty()) {
+                val newItem = RecyclerModel(versionName, version)
+                arrayList.add(newItem)
+                adapterRecycler?.notifyItemInserted(arrayList.size - 1)
+                editTextVersionName.text.clear()
+                editTextVersion.text.clear()
+            }
+        }
+
+    }
+
+    fun deleteItem(position: Int) {
+        if (position >= 0 && position < arrayList.size) {
+            arrayList.removeAt(position)
+            adapterRecycler?.notifyItemRemoved(position)
+            // Optional: Notify remaining items to adjust positions if needed
+            adapterRecycler?.notifyItemRangeChanged(position, arrayList.size)
+        }
     }
 }

@@ -53,5 +53,6 @@ class CustomListViewDemo : AppCompatActivity() {
             list.removeAt(position)
             ad.notifyDataSetChanged()
         }
+
     }
 }
