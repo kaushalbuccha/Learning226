@@ -16,6 +16,7 @@ import com.example.learning226.CustomListViewBaseAdapter.CustomListViewBaseAdapt
 import com.example.learning226.DyanmicCustomListView.CustomListViewDemo
 import com.example.learning226.DynamicCustomGridView.CustomGridViewDemo
 import com.example.learning226.GridViewExample.CustomGridViewExample
+import com.example.learning226.RecyclerGridView.RecyclerGridViewExample
 import com.example.learning226.RecyclerView.RecyclerViewExample
 import com.example.learning226.SearchActivity.SearchActivity
 import com.google.android.material.appbar.MaterialToolbar
@@ -94,6 +95,9 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.recyclerViewBtn ->{
                 startActivity(Intent(this,RecyclerViewExample::class.java))
+            }
+            R.id.recyclerGridView ->{
+                startActivity(Intent(this,RecyclerGridViewExample::class.java))
             }
         }
     }

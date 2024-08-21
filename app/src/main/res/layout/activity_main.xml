@@ -74,7 +74,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Coming Soon"
+                android:text="Recycler Grid View"
+                android:id="@+id/recyclerGridView"
                 android:layout_margin="10dp"
                 android:padding="10dp"/>
             <Button
