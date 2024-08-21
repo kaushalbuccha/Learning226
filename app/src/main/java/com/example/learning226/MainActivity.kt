@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.learning226.CustomListViewArrayAdapter.CustomListViewArrayAdapterExample
 import com.example.learning226.CustomListViewBaseAdapter.CustomListViewBaseAdapter
+import com.example.learning226.DragNDrop.DragDropActivity
 import com.example.learning226.DyanmicCustomListView.CustomListViewDemo
 import com.example.learning226.DynamicCustomGridView.CustomGridViewDemo
 import com.example.learning226.GridViewExample.CustomGridViewExample
@@ -98,6 +99,9 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.recyclerGridView ->{
                 startActivity(Intent(this,RecyclerGridViewExample::class.java))
+            }
+            R.id.dragNDrop ->{
+                startActivity(Intent(this,DragDropActivity::class.java))
             }
         }
     }
