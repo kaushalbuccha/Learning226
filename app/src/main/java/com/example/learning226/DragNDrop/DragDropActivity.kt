@@ -1,6 +1,9 @@
 package com.example.learning226.DragNDrop
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -9,12 +12,17 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learning226.R
+import com.google.android.material.snackbar.Snackbar
 
 class DragDropActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: DragDropAdapter
     private lateinit var itemList: ArrayList<String>
     private lateinit var imageList: ArrayList<Int>
+
+    private var recentlyDeletedItem: String? = null
+    private var recentlyDeletedItemImage: Int? = null
+    private var recentlyDeletedItemPosition: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +59,7 @@ class DragDropActivity : AppCompatActivity() {
 
         val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
             ItemTouchHelper.UP or ItemTouchHelper.DOWN,
-            0 // 0 disables swipe
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
         ) {
             override fun onMove(
                 recyclerView: RecyclerView,
@@ -64,9 +72,37 @@ class DragDropActivity : AppCompatActivity() {
                 return true
             }
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                // Do nothing for now
+                val position = viewHolder.adapterPosition
+                val item = itemList[position]
+                Log.d("SwipeTest", "Item swiped in direction: $direction")
+                if (direction == ItemTouchHelper.LEFT) {
+
+                    recentlyDeletedItem = itemList[position]
+                    recentlyDeletedItemImage = imageList[position]
+                    recentlyDeletedItemPosition = position
+
+                    itemList.removeAt(position)
+                    imageList.removeAt(position)
+                    adapter.notifyItemRemoved(position)
+
+                    showUndoSnackbar()
+                }
+                else if (direction == ItemTouchHelper.RIGHT) {
+                    Toast.makeText(this@DragDropActivity, "Swiped: $item", Toast.LENGTH_SHORT).show()
+                    adapter.notifyItemChanged(position)
+                }
             }
         })
         itemTouchHelper.attachToRecyclerView(recyclerView)
+    }
+    private fun showUndoSnackbar() {
+        val view = findViewById<View>(android.R.id.content)
+        val snackbar = Snackbar.make(view, "$recentlyDeletedItem deleted", Snackbar.LENGTH_LONG)
+        snackbar.setAction("UNDO") {
+            itemList.add(recentlyDeletedItemPosition, recentlyDeletedItem!!)
+            imageList.add(recentlyDeletedItemPosition, recentlyDeletedItemImage!!)
+            adapter.notifyItemInserted(recentlyDeletedItemPosition)
+        }
+        snackbar.show()
     }
 }
