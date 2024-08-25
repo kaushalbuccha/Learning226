@@ -20,6 +20,7 @@ import com.example.learning226.GridViewExample.CustomGridViewExample
 import com.example.learning226.RecyclerGridView.RecyclerGridViewExample
 import com.example.learning226.RecyclerView.RecyclerViewExample
 import com.example.learning226.SearchActivity.SearchActivity
+import com.example.learning226.Shopping.ShoppingMain
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -102,6 +103,9 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.dragNDrop ->{
                 startActivity(Intent(this,DragDropActivity::class.java))
+            }
+            R.id.shoopingActivity ->{
+                startActivity(Intent(this,ShoppingMain::class.java))
             }
         }
     }
