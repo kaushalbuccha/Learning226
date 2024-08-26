@@ -11,6 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.learning226.CoRoutine.CoRoutineImageExample
 import com.example.learning226.CustomListViewArrayAdapter.CustomListViewArrayAdapterExample
 import com.example.learning226.CustomListViewBaseAdapter.CustomListViewBaseAdapter
 import com.example.learning226.DragNDrop.DragDropActivity
@@ -106,6 +107,9 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.shoopingActivity ->{
                 startActivity(Intent(this,ShoppingMain::class.java))
+            }
+            R.id.coroutines ->{
+                startActivity(Intent(this,CoRoutineImageExample::class.java))
             }
         }
     }
