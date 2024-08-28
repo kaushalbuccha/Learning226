@@ -16,6 +16,7 @@ class CoRoutineExample : AppCompatActivity() {
         val pdfFetchButton = findViewById<Button>(R.id.buttonPDFFetch)
         val audioFetchButton = findViewById<Button>(R.id.buttonAudioFetch)
         val textFetchButton = findViewById<Button>(R.id.buttonTextFetch)
+        val JSONFetchButton = findViewById<Button>(R.id.buttonJSONFetch)
 
         imageFetchButton.setOnClickListener {
             val intent = Intent(this, CoRoutineImageExample::class.java)
@@ -36,6 +37,10 @@ class CoRoutineExample : AppCompatActivity() {
         }
         textFetchButton.setOnClickListener{
             val intent = Intent(this, CoRoutineTextExample::class.java)
+            startActivity(intent)
+        }
+        JSONFetchButton.setOnClickListener{
+            val intent = Intent(this, CoRoutineJSONExample::class.java)
             startActivity(intent)
         }
     }

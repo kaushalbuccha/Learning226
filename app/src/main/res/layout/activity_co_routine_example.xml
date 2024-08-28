@@ -41,5 +41,11 @@
         android:layout_height="wrap_content"
         android:text="Fetch Text"
         android:layout_marginTop="16dp" />
+    <Button
+        android:id="@+id/buttonJSONFetch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fetch JSON"
+        android:layout_marginTop="16dp" />
 
 </LinearLayout>
