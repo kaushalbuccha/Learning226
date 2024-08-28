@@ -22,6 +22,12 @@
         android:layout_height="wrap_content"
         android:text="Fetch Video"
         android:layout_marginTop="16dp" />
+    <Button
+        android:id="@+id/buttonVideo2Fetch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fetch Video 2"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/buttonPDFFetch"
