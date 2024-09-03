@@ -18,6 +18,7 @@ import com.example.learning226.CustomListViewBaseAdapter.CustomListViewBaseAdapt
 import com.example.learning226.DragNDrop.DragDropActivity
 import com.example.learning226.DyanmicCustomListView.CustomListViewDemo
 import com.example.learning226.DynamicCustomGridView.CustomGridViewDemo
+import com.example.learning226.ForegroundServices.ForegroundServicesExample
 import com.example.learning226.GridViewExample.CustomGridViewExample
 import com.example.learning226.RecyclerGridView.RecyclerGridViewExample
 import com.example.learning226.RecyclerView.RecyclerViewExample
@@ -111,6 +112,9 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.coroutines ->{
                 startActivity(Intent(this,CoRoutineExample::class.java))
+            }
+            R.id.foregroundServices->{
+                startActivity(Intent(this,ForegroundServicesExample::class.java))
             }
         }
     }

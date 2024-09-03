@@ -52,6 +52,7 @@ class CoRoutineAudioExample : AppCompatActivity() {
             }
         }
     }
+
     private suspend fun fetchAudioData(url: String): ByteArray? {
         return withContext(Dispatchers.IO) {
             val client = OkHttpClient()
