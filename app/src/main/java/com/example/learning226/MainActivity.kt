@@ -11,6 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.learning226.BroadcastReceiverDemo.AirplaneReceiverActivityDemo
 import com.example.learning226.CoRoutine.CoRoutineExample
 import com.example.learning226.CoRoutine.CoRoutineImageExample
 import com.example.learning226.CustomListViewArrayAdapter.CustomListViewArrayAdapterExample
@@ -115,6 +116,9 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.foregroundServices->{
                 startActivity(Intent(this,ForegroundServicesExample::class.java))
+            }
+            R.id.broadcastReceiver->{
+                startActivity(Intent(this,AirplaneReceiverActivityDemo::class.java))
             }
         }
     }
