@@ -19,6 +19,7 @@ import com.example.learning226.CustomListViewBaseAdapter.CustomListViewBaseAdapt
 import com.example.learning226.DragNDrop.DragDropActivity
 import com.example.learning226.DyanmicCustomListView.CustomListViewDemo
 import com.example.learning226.DynamicCustomGridView.CustomGridViewDemo
+import com.example.learning226.FloatingButtonExample.FloatingButtonDemo
 import com.example.learning226.ForegroundServices.ForegroundServicesExample
 import com.example.learning226.GridViewExample.CustomGridViewExample
 import com.example.learning226.RecyclerGridView.RecyclerGridViewExample
@@ -119,6 +120,9 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.broadcastReceiver->{
                 startActivity(Intent(this,AirplaneReceiverActivityDemo::class.java))
+            }
+            R.id.floatingButton->{
+                startActivity(Intent(this,FloatingButtonDemo::class.java))
             }
         }
     }
