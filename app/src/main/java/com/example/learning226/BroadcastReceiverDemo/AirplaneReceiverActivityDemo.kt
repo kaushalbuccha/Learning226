@@ -5,6 +5,7 @@ import android.content.IntentFilter
 import android.media.AudioManager
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.learning226.R
 
@@ -24,6 +25,11 @@ class AirplaneReceiverActivityDemo : AppCompatActivity() {
         }
         IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).also {
             registerReceiver(receiver, it)
+        }
+
+        val batteryBtn = findViewById<Button>(R.id.batteryReceiver)
+        batteryBtn.setOnClickListener {
+            startActivity(Intent(this,BatteryActivity::class.java))
         }
     }
 

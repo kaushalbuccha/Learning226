@@ -19,7 +19,7 @@ class ModeChangeReceiver : BroadcastReceiver() {
                 } else {
                     "Airplane Mode Disabled"
                 }
-                Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             }
             AudioManager.RINGER_MODE_CHANGED_ACTION -> {
                 val audioManager = context?.getSystemService(Context.AUDIO_SERVICE) as AudioManager
@@ -29,7 +29,7 @@ class ModeChangeReceiver : BroadcastReceiver() {
                     AudioManager.RINGER_MODE_NORMAL -> "Phone is in Normal Mode"
                     else -> "Unknown Ringer Mode"
                 }
-                Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             }
             ConnectivityManager.CONNECTIVITY_ACTION -> {
                 val isConnected = checkInternetConnection(context)
@@ -38,7 +38,7 @@ class ModeChangeReceiver : BroadcastReceiver() {
                 } else {
                     "Internet Disconnected"
                 }
-                Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             }
         }
     }
