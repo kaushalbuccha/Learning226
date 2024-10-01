@@ -24,6 +24,7 @@ import com.example.learning226.ForegroundServices.ForegroundServicesExample
 import com.example.learning226.GridViewExample.CustomGridViewExample
 import com.example.learning226.RecyclerGridView.RecyclerGridViewExample
 import com.example.learning226.RecyclerView.RecyclerViewExample
+import com.example.learning226.SQLite.SQLiteMain
 import com.example.learning226.SearchActivity.SearchActivity
 import com.example.learning226.Shopping.ShoppingMain
 import com.google.android.material.appbar.MaterialToolbar
@@ -123,6 +124,9 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.floatingButton->{
                 startActivity(Intent(this,FloatingButtonDemo::class.java))
+            }
+            R.id.sqliteButton->{
+                startActivity(Intent(this,SQLiteMain::class.java))
             }
         }
     }
