@@ -1,41 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".SQLite.SQLiteMain">
+    android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_centerHorizontal="true"
-        >
+        android:padding="10dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sqllitenameed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_centerHorizontal="true"
-        >
+        android:padding="10dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sqlliteageed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Age" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
+    <Button
+        android:id="@+id/sqliteimagebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Image"
+        android:layout_gravity="center"/>
+
+    <ImageView
+        android:id="@+id/sqliteimageview"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_foreground" />
 
     <Button
         android:id="@+id/sqliteadddata"
@@ -58,25 +64,9 @@
         android:text="Delete Data"
         android:layout_gravity="center"/>
 
-    <LinearLayout
+    <!-- ListView to display user data -->
+    <ListView
+        android:id="@+id/userlistview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/sqlitenametv"
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:text="Name"
-
-            />
-
-        <TextView
-            android:id="@+id/sqliteagetv"
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:text="Age"
-            />
-    </LinearLayout>
-
-
+        android:layout_height="wrap_content"/>
 </LinearLayout>
