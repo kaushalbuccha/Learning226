@@ -17,7 +17,7 @@ class SQLiteDBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         const val COLUMN_ID = "id"
         const val COLUMN_NAME = "name"
         const val COLUMN_AGE = "age"
-        const val COLUMN_IMAGE = "image"  // New column for image storage
+        const val COLUMN_IMAGE = "image"
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -26,7 +26,7 @@ class SQLiteDBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
                 $COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 $COLUMN_NAME TEXT,
                 $COLUMN_AGE TEXT,
-                $COLUMN_IMAGE BLOB  -- Column to store image as byte array
+                $COLUMN_IMAGE BLOB
             );
         """
         db.execSQL(CREATE_TABLE)
@@ -37,12 +37,12 @@ class SQLiteDBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         onCreate(db)
     }
 
-    // Method to add data to the database (name, age, and image)
+
     fun addData(Name: String, Age: String, imageBytes: ByteArray): Long {
         val values = ContentValues()
         values.put(COLUMN_NAME, Name)
         values.put(COLUMN_AGE, Age)
-        values.put(COLUMN_IMAGE, imageBytes)  // Storing image as byte array
+        values.put(COLUMN_IMAGE, imageBytes)
 
         val db = this.writableDatabase
         val result = db.insert(TABLE_NAME, null, values)
@@ -50,16 +50,21 @@ class SQLiteDBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         return result
     }
 
-    // Method to fetch data from the database
+
     fun fetchData(): Cursor {
         val db = this.readableDatabase
         return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
     }
 
-    // Method to delete all data from the database
+
     fun delAll() {
         val db = this.writableDatabase
         db.execSQL("DELETE FROM $TABLE_NAME")
         db.close()
     }
+    fun fetchDataFilteredByAge(ageCondition: String): Cursor {
+        val db = this.readableDatabase
+        return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE $COLUMN_AGE $ageCondition", null)
+    }
+
 }

@@ -36,7 +36,7 @@ class UserAdapter(private val context: Context, private val users: List<UserData
         nameTextView.text = user.name
         ageTextView.text = user.age
 
-        // Convert byte array to Bitmap and set in ImageView
+
         val bitmap = BitmapFactory.decodeByteArray(user.image, 0, user.image.size)
         imageView.setImageBitmap(bitmap)
 

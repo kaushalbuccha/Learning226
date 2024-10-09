@@ -18,6 +18,8 @@ class SQLiteMain : AppCompatActivity() {
     private lateinit var printData: Button
     private lateinit var deleteData: Button
     private lateinit var selectImage: Button
+    private lateinit var btnGreaterThan30: Button
+    private lateinit var btnLessThan30: Button
     private lateinit var nameed: EditText
     private lateinit var ageed: EditText
     private lateinit var selectedImageView: ImageView
@@ -95,9 +97,25 @@ class SQLiteMain : AppCompatActivity() {
             db.delAll()
             Toast.makeText(this, "Deleted all data", Toast.LENGTH_SHORT).show()
         }
+
+        btnGreaterThan30 = findViewById(R.id.sqliteGreaterThan30)
+        btnLessThan30 = findViewById(R.id.sqliteLessThan30)
+
+        // Open new activity to show age > 30 data
+        btnGreaterThan30.setOnClickListener {
+            val intent = Intent(this, DisplayFilteredDataActivity::class.java)
+            intent.putExtra("filter", "greater")
+            startActivity(intent)
+        }
+
+        // Open new activity to show age < 30 data
+        btnLessThan30.setOnClickListener {
+            val intent = Intent(this, DisplayFilteredDataActivity::class.java)
+            intent.putExtra("filter", "less")
+            startActivity(intent)
+        }
     }
 
-    // Handle the result of image selection
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
