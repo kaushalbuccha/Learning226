@@ -127,6 +127,13 @@
                 android:id="@+id/sqliteButton"
                 android:layout_margin="10dp"
                 android:padding="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Room DB"
+                android:id="@+id/roomDbButton"
+                android:layout_margin="10dp"
+                android:padding="10dp"/>
 
         </LinearLayout>
     </ScrollView>
